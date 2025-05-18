@@ -6,6 +6,8 @@
 
 FrontLLM is your public gateway to LLMs. Request LLM directly from your front-end code. No backend needed.
 
+📝 Check the [documentation](https://frontllm.com/docs/introduction) for more details.
+
 ### 👀 Demos
 
 * [Explain This](https://frontllm.com/docs/demos/explain-this)
