@@ -1,0 +1,15 @@
+{
+	"name": "frontllm-sdk-workspace",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"build": "pnpm run -r build",
+		"prettier": "pnpm run -r prettier",
+		"prettier:fix": "pnpm run -r prettier:fix",
+		"eslint": "pnpm run -r eslint",
+		"serve": "http-server -p 7766 -c-1 ./"
+	},
+	"devDependencies": {
+		"http-server": "^14.1.1"
+	}
+}
