@@ -1,7 +1,7 @@
 {
 	"name": "frontllm",
 	"description": "FrontLLM is your public gateway to LLMs. Request LLM directly from your front-end code.",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"type": "module",
 	"main": "./lib/esm/index.js",
 	"types": "./lib/index.d.ts",
