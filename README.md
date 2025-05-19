@@ -53,16 +53,44 @@ This will expose the `frontLLM` function globally, which you can use to create a
 Chat Completion:
 
 ```js
-const gateway = frontLLM('<gateway_id>');
-const response = await gateway.complete('Hello world!');
+// Short syntax - requires the default model configured in the gateway
+
+const response = await gateway.complete('Hello world!'); 
+
+// Full syntax
+
+const response = await gateway.complete({
+  model: 'gpt-4',
+  messages: [
+    { role: 'user', content: 'Hello world!' }
+  ],
+  temperature: 0.7
+});
+
+// Output the generated response text to the console.
+
 console.log(response.choices[0].message.content);
 ```
 
 Chat Completion with Streaming:
 
 ```js
-const gateway = frontLLM('<gateway_id>');
-const response = await gateway.completeStreaming('Where is europe?');
+// Short syntax - requires the default model configured in the gateway
+
+const response = await gateway.completeStreaming('Where is Europe?');
+
+// Full syntax
+
+const response = await gateway.completeStreaming({
+  model: 'gpt-4',
+  messages: [
+    { role: 'user', content: 'Where is Europe?' }
+  ],
+  temperature: 0.7
+});
+
+// Output the generated response text to the console.
+
 for (;;) {
   const { finished, chunks } = await response.read();
   for (const chunk of chunks) {
@@ -73,6 +101,7 @@ for (;;) {
   }
 }
 ```
+
 
 ## 💡 License
 

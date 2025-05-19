@@ -11,7 +11,7 @@ export interface CreateBaseChatCompletionRequest {
 	}[];
 	model?: string;
 	temperature?: number;
-	maxTokens?: number;
+	max_tokens?: number;
 }
 
 export interface CreateNonStreamingChatCompletionRequest extends CreateBaseChatCompletionRequest {
