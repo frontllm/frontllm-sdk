@@ -45,12 +45,13 @@ export class FrontLLM {
 	}
 
 	private async createCompletion(url: string, payload: unknown, options: FrontLLMClientOptions | undefined) {
+		const headers: Record<string, string> = {
+			'Content-Type': 'application/json'
+		};
 		const init: RequestInit = {
 			method: 'POST',
 			mode: 'cors',
-			headers: {
-				'Content-Type': 'application/json'
-			},
+			headers,
 			body: JSON.stringify(payload)
 		};
 		const timeout = options?.timeout ?? this.configuration.timeout;
@@ -59,6 +60,9 @@ export class FrontLLM {
 		}
 		if (options?.abortSignal) {
 			init.signal = options.abortSignal;
+		}
+		if (this.configuration.headers) {
+			Object.assign(headers, this.configuration.headers);
 		}
 		let response: Response;
 		try {
